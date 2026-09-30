@@ -11,26 +11,20 @@ public class Main {
         try {
             AtlassianConfig config = new AtlassianConfig();
 
-            ConfluenceClient confluenceClient =
-                    new ConfluenceClient(config);
+            ConfluenceClient confluenceClient = new ConfluenceClient(config);
 
-            SpaceService spaceService =
-                    new SpaceService(confluenceClient);
+            SpaceService spaceService = new SpaceService(confluenceClient);
 
             System.out.println("Confluence connection successful.");
             System.out.println();
 
             System.out.println("Current user:");
-            System.out.println(
-                    confluenceClient.getCurrentUser()
-            );
+            System.out.println(confluenceClient.getCurrentUser());
 
             System.out.println();
 
             System.out.println("Space access mode:");
-            System.out.println(
-                    spaceService.getSpaceRoleMode()
-            );
+            System.out.println(spaceService.getSpaceRoleMode());
 
         } catch (Exception e) {
             System.err.println(
