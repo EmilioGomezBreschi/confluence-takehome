@@ -109,7 +109,7 @@ public class ConfluenceClient {
     public String uploadAttachment(String pageId, File file
     ) throws IOException {
 
-        MediaType mediaType = MediaType.get("image/jpg");
+        MediaType mediaType = MediaType.get("image/jpeg");
 
         RequestBody fileBody = RequestBody.create(file, mediaType);
 
