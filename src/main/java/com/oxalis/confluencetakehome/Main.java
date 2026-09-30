@@ -1,45 +1,42 @@
 package com.oxalis.confluencetakehome;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.oxalis.confluencetakehome.client.ConfluenceClient;
 import com.oxalis.confluencetakehome.config.AtlassianConfig;
-import com.oxalis.confluencetakehome.service.ContentService;
-import com.oxalis.confluencetakehome.service.GroupService;
 import com.oxalis.confluencetakehome.service.SpaceService;
-import com.oxalis.confluencetakehome.service.UserService;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
-        AtlassianConfig config = new AtlassianConfig();
+        try {
+            AtlassianConfig config = new AtlassianConfig();
 
-        ConfluenceClient confluenceClient = new ConfluenceClient(config);
+            ConfluenceClient confluenceClient =
+                    new ConfluenceClient(config);
 
-        GroupService groupService = new GroupService(confluenceClient);
-        UserService userService = new UserService(confluenceClient);
-        SpaceService spaceService = new SpaceService(confluenceClient);
-        ContentService contentService = new ContentService(confluenceClient);
+            SpaceService spaceService =
+                    new SpaceService(confluenceClient);
 
-        // List of Users in my group
-        List<String> standardUsers = List.of(
-                "Emilio Gomez 1",
-                "Emilio Gomez 2",
-                "Emilio Gomez 3",
-                "Emilio Gomez 4"
-        );
+            System.out.println("Confluence connection successful.");
+            System.out.println();
 
-        //Group ID
-        String groupId = "ededaeb3-88d9-48e0-a9da-87528afa1fcb";
+            System.out.println("Current user:");
+            System.out.println(
+                    confluenceClient.getCurrentUser()
+            );
 
-        String user2AccountId = userService.findUserAccountId("Emilio Gomez");
+            System.out.println();
 
-        contentService.restrictReadToUser("557298", user2AccountId);
+            System.out.println("Space access mode:");
+            System.out.println(
+                    spaceService.getSpaceRoleMode()
+            );
 
-        System.out.println("Page restricted to Emilio Gomez");
+        } catch (Exception e) {
+            System.err.println(
+                    "Application error: " + e.getMessage()
+            );
+            System.exit(1);
+        }
     }
 }
