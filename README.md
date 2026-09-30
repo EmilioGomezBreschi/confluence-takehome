@@ -343,6 +343,15 @@ Java try-with-resources is used to ensure HTTP responses are properly closed.
 
 ---
 
+## My work
+
+I was responsible for integrating the application, configuring the Atlassian environment, executing and validating the API calls, debugging API responses, and adapting the implementation to the behavior of the actual Confluence Cloud environment.
+
+- Replacing standard spaces with private spaces
+- Moving from legacy permissions to RBAC roles
+- Creating a custom read-only role
+- Adapting the page restriction strategy after receiving API validation errors
+
 ## AI Assistance
 
 ChatGPT was used as a technical assistant during the exercise.
@@ -350,17 +359,10 @@ ChatGPT was used as a technical assistant during the exercise.
 AI assistance included:
 
 - Researching and validating some Confluence REST API endpoints
-- Guidance on project structure
-- Troubleshooting Confluence permissions
-- Assistance with attachment upload
-- Grammar checking
-
-Important implementation decisions were made based on real API responses, including:
-
-- Replacing standard spaces with private spaces
-- Moving from legacy permissions to RBAC roles
-- Creating a custom read-only role
-- Adapting the page restriction strategy after receiving API validation errors
+- Guidance on project organization
+- Troubleshooting Confluence permissions and RBAC behavior
+- Initial guidance for multipart attachment upload and page image embedding
+- Grammar review of the documentation
 
 ---
 
