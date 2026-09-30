@@ -120,7 +120,7 @@ public class SpaceService {
     }
 
     //GET Space Rol Mode
-    public String getSpaceRolMode() throws IOException {
+    public String getSpaceRoleMode() throws IOException {
 
         return client.get("/wiki/api/v2/space-role-mode");
     }
